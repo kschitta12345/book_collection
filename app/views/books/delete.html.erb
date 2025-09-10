@@ -1,0 +1,7 @@
+<h1> Delete Book </h1>
+<p> Are you absolutely sure that you want to delete "<%= @book.title %>"? </p>
+<p>
+  <%= link_to "Cancel", books_path %> |
+  <%= button_to "Yes, delete", @book, method: :delete, data: { turbo_confirm: "This action cannot be undone. Are you sure you wish to continue?" } %>
+</p>
+<p><%= link_to "Home", root_path %> </p>
