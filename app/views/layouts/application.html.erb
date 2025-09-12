@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+      <div class="flash <%= type %>" style="background:#fee; color:#900; padding:8px; margin:8px 0; border:1px solid #f99;">
+        <%= message %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

@@ -26,6 +26,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to books_path, notice: "Book was successfully created."
     else
+      flash.now[:alert] = "Book could not be created."
       render :new, status: :unprocessable_entity
     end
   end
@@ -35,6 +36,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to books_path, notice: "Book was successfully updated."
     else
+      flash.now[:alert] = "Book could not be updated."
       render :edit, status: :unprocessable_entity
     end
   end
@@ -58,6 +60,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title)
+      params.require(:book).permit(:title, :author, :price, :published_date)
     end
 end
