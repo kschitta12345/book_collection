@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<%= render @book %>
+<p><strong>Title:</strong> <%= book.title %></p>
+<p><strong>Author:</strong> <%= book.author %></p>
+<p><strong>Price:</strong> <%= number_to_currency(book.price) %></p>
+<p><strong>Published date:</strong> <%= book.published_date %></p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<div>
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to "Back to books", books_path %>
+
+  <%= link_to "Delete this book", delete_book_path(@book) %>
+</div>
+<p><%= link_to "Home", root_path %></p>

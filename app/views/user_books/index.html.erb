@@ -1,0 +1,30 @@
+<p>
+  <%= link_to "Books", books_path %> |
+  <%= link_to "Users", users_path %> |
+  <%= link_to "New UserBook", new_user_book_path %>
+</p>
+
+<h1>User Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_books.includes(:user, :book).each do |ub| %>
+      <tr>
+        <td><%= ub.user&.username %></td>
+        <td><%= ub.book&.title %></td>
+        <td><%= link_to "Show", ub %></td>
+        <td><%= link_to "Edit", edit_user_book_path(ub) %></td>
+        <td><%= button_to "Destroy", ub, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

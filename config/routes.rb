@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
-  resources :books
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :books do
+    member do
+      get :delete   # confirmation page before destruction
+    end
+  end
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  root "books#index"
 end

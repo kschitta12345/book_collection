@@ -1,0 +1,13 @@
+<div id="<%= dom_id book %>">
+  <p>
+    <strong>Title:</strong>
+    <%= book.title %>
+    <strong>Author:</strong> 
+    <%= book.author %>
+    <strong>Price:</strong>
+    <%= number_to_currency(book.price) %>
+    <strong>Published date:</strong>
+    <%= book.published_date %>
+  </p>
+
+</div>
